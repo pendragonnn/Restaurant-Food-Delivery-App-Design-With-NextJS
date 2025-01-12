@@ -30,11 +30,12 @@ const Menu = () => {
         {links.map(item => (
           <Link key={item.id} href={item.url} onClick={() => setOpen(false)}>{item.title}</Link>
         ))}
-        {!user ? <Link href={"/login"} onClick={() => setOpen(false)}>Login</Link> :
-          <Link href={"/login"} onClick={() => setOpen(false)}>Orders</Link>}
-        <Link href={"/cart"} onClick={() => setOpen(false)}>
-          <CartIcon />
-        </Link>
+        {!user ? (
+          <Link href={"/login"} onClick={() => setOpen(false)}>Login</Link>)
+          : (
+            <Link href={"/login"} onClick={() => setOpen(false)}>Orders</Link>
+          )}
+        <CartIcon onClickCart={setOpen} />
       </div>}
     </div>
   )
